@@ -2,39 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/home/emanuele/Android Customs/android-instagram-oauth/example/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jar="/home/emanuele/Android Customs/android-instagram-oauth/example/build/intermediates/exploded-aar/com.github.emanuelet/library/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="/home/emanuele/Android Customs/android-instagram-oauth/example/build/intermediates/pre-dexed/debug/classes-7e8e764582887f8abc49e1ad1e4607184773f8f6.jar" />
-    </item>
-    <item
-        jar="/home/emanuele/Android Customs/android-instagram-oauth/example/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="/home/emanuele/Android Customs/android-instagram-oauth/example/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-66d504b271f93ad8359f06c32e6f02557568b814.jar" />
-    </item>
-    <item
-        jar="/home/emanuele/Android Customs/android-instagram-oauth/example/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/home/emanuele/Android Customs/android-instagram-oauth/example/build/intermediates/pre-dexed/debug/classes-a98e47ffde149ad2af5298d387cd5638c782f5fa.jar" />
-    </item>
-    <item
-        jar="/home/emanuele/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/home/emanuele/Android Customs/android-instagram-oauth/example/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-b1eab041d4c1609f649073be7984f8b5559c84e8.jar" />
-    </item>
-    <item
-        jar="/home/emanuele/Android Customs/android-instagram-oauth/example/build/intermediates/exploded-aar/android-instagram-oauth/library/unspecified/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="c91d0242da805f9dba240776b623d319e596c4b1">
-        <dex dex="/home/emanuele/Android Customs/android-instagram-oauth/example/build/intermediates/pre-dexed/debug/classes-dcabc9688a91109d5cf7f3f2a346e98ff2181cd7.jar" />
+        sha1="d82bbd84ba44b55b1f0c39dfff77c6ef963868f2">
+        <dex dex="/home/emanuele/Android Customs/android-instagram-oauth/example/build/intermediates/pre-dexed/debug/classes-3f0fdea3bd5323733c17e4578a0466bb55e51dee.jar" />
     </item>
 
 </items>

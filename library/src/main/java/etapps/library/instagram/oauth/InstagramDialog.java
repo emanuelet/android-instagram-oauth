@@ -1,7 +1,6 @@
 package etapps.library.instagram.oauth;
 
 import android.annotation.TargetApi;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,11 +14,14 @@ import android.util.Log;
 import android.view.Display;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -33,20 +35,18 @@ import etapps.library.R;
  */
 public class InstagramDialog extends AppCompatDialog {
 
-    static final float[] DIMENSIONS_LANDSCAPE = {460, 260};
-    static final float[] DIMENSIONS_PORTRAIT = {280, 420};
     static final FrameLayout.LayoutParams FILL = new FrameLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.MATCH_PARENT);
+
     static final int MARGIN = 4;
-    static final int PADDING = 2;
+    static final int PADDING = 40;
 
     private String mUrl;
     private OAuthDialogListener mListener;
     private ProgressDialog mSpinner;
     private WebView mWebView;
     private LinearLayout mContent;
-    private TextView mTitle;
 
     private static final String TAG = "Instagram-WebView";
 
@@ -62,56 +62,53 @@ public class InstagramDialog extends AppCompatDialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.dialog);
+
         mSpinner = new ProgressDialog(getContext());
         mSpinner.requestWindowFeature(Window.FEATURE_NO_TITLE);
         mSpinner.setMessage("Loading...");
         mContent = new LinearLayout(getContext());
         mContent.setOrientation(LinearLayout.VERTICAL);
-        setUpTitle();
+
         setUpWebView();
 
         final float scale;
-        float[] dimensions;
+        float[] dimensions = {300, 500};
 
         if (Build.VERSION.SDK_INT >= 17) {
             Display display = getWindow().getWindowManager().getDefaultDisplay();
             DisplayMetrics realMetrics = new DisplayMetrics();
             display.getRealMetrics(realMetrics);
             scale = realMetrics.density;
-            dimensions = (realMetrics.widthPixels < realMetrics.heightPixels) ? DIMENSIONS_PORTRAIT
-                    : DIMENSIONS_LANDSCAPE;
+            dimensions[0] = realMetrics.widthPixels - PADDING;
+            dimensions[1] = realMetrics.heightPixels - PADDING;
         } else {
             Display display = getWindow().getWindowManager().getDefaultDisplay();
             scale = getContext().getResources().getDisplayMetrics().density;
-            dimensions = (display.getWidth() < display.getHeight()) ? DIMENSIONS_PORTRAIT
-                    : DIMENSIONS_LANDSCAPE;
+            dimensions[0] = display.getWidth() - PADDING;
+            dimensions[1] = display.getHeight() - PADDING;
         }
 
         addContentView(mContent, new FrameLayout.LayoutParams(
                 (int) (dimensions[0] * scale + 0.5f), (int) (dimensions[1]
                 * scale + 0.5f)));
+
+        CookieSyncManager.createInstance(getContext());
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.removeAllCookie();
     }
 
-    private void setUpTitle() {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        mTitle = new TextView(getContext());
-        mTitle.setText(R.string.instagram);
-        mTitle.setTextColor(Color.WHITE);
-        mTitle.setTypeface(Typeface.DEFAULT_BOLD);
-        mTitle.setBackgroundColor(Color.BLACK);
-        mTitle.setPadding(MARGIN + PADDING, MARGIN, MARGIN, MARGIN);
-        mContent.addView(mTitle);
+    @Override
+    public boolean supportRequestWindowFeature(int featureId) {
+        return supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
     }
+
 
     private void setUpWebView() {
-        mWebView = new WebView(getContext());
-        mWebView.setVerticalScrollBarEnabled(false);
-        mWebView.setHorizontalScrollBarEnabled(false);
+        mWebView = (WebView) findViewById(R.id.webview);
         mWebView.setWebViewClient(new OAuthWebViewClient());
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.loadUrl(mUrl);
-        mWebView.setLayoutParams(FILL);
-        mContent.addView(mWebView);
     }
 
     private class OAuthWebViewClient extends WebViewClient {
@@ -140,10 +137,6 @@ public class InstagramDialog extends AppCompatDialog {
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
-            String title = mWebView.getTitle();
-            if (title != null && title.length() > 0) {
-                mTitle.setText(title);
-            }
             Log.d(TAG, "onPageFinished URL: " + url);
             mSpinner.dismiss();
         }

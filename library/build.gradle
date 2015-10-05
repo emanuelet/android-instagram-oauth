@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
+group = 'com.github.emanuelet'
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
