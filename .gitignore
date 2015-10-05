@@ -11,5 +11,6 @@ proguard.cfg
 .idea
 .gradle
 *.iml
+build/
 example/*.iml
 library/*.iml
