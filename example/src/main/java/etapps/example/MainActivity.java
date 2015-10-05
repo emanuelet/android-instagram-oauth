@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (mApp.hasAccessToken()) {
             tvSummary.setText("Connected as " + mApp.getUserName());
-            btnConnect.setText("Disconnect");
+            btnConnect.setText(R.string.disconnect);
         }
 
     }
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onSuccess() {
             tvSummary.setText("Connected as " + mApp.getUserName());
-            btnConnect.setText("Disconnect");
+            btnConnect.setText(R.string.disconnect);
         }
 
         @Override

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">instagram-oauth</string>
+    <string name="instagram">Instagram</string>
 </resources>
