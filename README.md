@@ -1,10 +1,6 @@
 Android OAuth Library for Instagram Applications
 ---------------
 
-![GitHub](http://thiago.grem.io/img/github/ig.png "GitHub")
-![GitHub](http://thiago.grem.io/img/github/ig_oauth2.png "GitHub")
-![GitHub](http://thiago.grem.io/img/github/ig_oauth3.png "GitHub")
-
 ## Usage
 
 You can create an utility class where you can define your application credentials, like the one below:
@@ -15,11 +11,11 @@ You can create an utility class where you can define your application credential
 			public static final String CALLBACK_URL = "";
 		}
 
-To instantiage the main class for the oauth flow, you need to follow the code below:
+To instantiate the main class for the oauth flow, you need to follow the code below:
 
-		InstagramApp mApp; = new InstagramApp(this, 
-			ApplicationData.CLIENT_ID, 
-			ApplicationData.CLIENT_SECRET, 
+		InstagramApp mApp; = new InstagramApp(this,
+			ApplicationData.CLIENT_ID,
+			ApplicationData.CLIENT_SECRET,
 			ApplicationData.CALLBACK_URL);
 
 Once you have the main class ready for the authorization, you can start the authorization flow by calling the following method:
@@ -33,6 +29,23 @@ If you token is expired, you can call this method to refresh it:
 To get the account list, call the following method
 
 		mApp.getAccountList();
+
+Download
+--------
+
+Grab the latest release via Gradle:
+```groovy
+compile 'com.github.emanuelet:android-instagram-oauth:0.5'
+```
+
+Remember to add the jitpack.io dependency to your repositories:
+```groovy
+repositories {
+    maven { url "https://jitpack.io" }
+}
+```
+
+The library requires at minimum Java 7 or Android 4.0.
 
 ## Contributions
 
