@@ -200,14 +200,15 @@ public class InstagramApp {
         return mSession.getId();
     }
 
+    public String getAccessToken() {
+        return mSession.getAccessToken();
+    }
+
     public String getName() {
         return mSession.getName();
     }
 
     public void authorize() {
-        //Intent webAuthIntent = new Intent(Intent.ACTION_VIEW);
-        //webAuthIntent.setData(Uri.parse(AUTH_URL));
-        //mCtx.startActivity(webAuthIntent);
         mDialog.show();
     }
 

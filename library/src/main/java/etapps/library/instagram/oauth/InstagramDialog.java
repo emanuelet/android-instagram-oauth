@@ -35,10 +35,6 @@ import etapps.library.R;
  */
 public class InstagramDialog extends AppCompatDialog {
 
-    static final FrameLayout.LayoutParams FILL = new FrameLayout.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.MATCH_PARENT);
-
     static final int MARGIN = 4;
     static final int PADDING = 40;
 
