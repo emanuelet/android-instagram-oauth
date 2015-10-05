@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDialog;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -30,7 +31,7 @@ import etapps.library.R;
  * @author Thiago Locatelli <thiago.locatelli@gmail.com>
  * @author Lorensius W. L T <lorenz@londatiga.net>
  */
-public class InstagramDialog extends Dialog {
+public class InstagramDialog extends AppCompatDialog {
 
     static final float[] DIMENSIONS_LANDSCAPE = {460, 260};
     static final float[] DIMENSIONS_PORTRAIT = {280, 420};
