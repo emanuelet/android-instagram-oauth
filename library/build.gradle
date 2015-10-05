@@ -8,9 +8,9 @@ buildscript {
 }
 
 apply plugin: 'com.android.library'
-//apply plugin: 'maven'
+apply plugin: 'com.github.dcendents.android-maven'  
 
-group = 'etapps.library'
+group = 'com.github.emanuelet'
 
 android {
     compileSdkVersion 23
