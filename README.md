@@ -22,20 +22,19 @@ Once you have the main class ready for the authorization, you can start the auth
 
 		mApp.authorize();
 
+Is adviced to register an OAuthAuthenticationListener to be notified of the successful authentication.
+
 If you token is expired, you can call this method to refresh it:
 
 		mApp.refreshToken();
 
-To get the account list, call the following method
-
-		mApp.getAccountList();
 
 Download
 --------
 
 Grab the latest release via Gradle:
 ```groovy
-compile 'com.github.emanuelet:android-instagram-oauth:0.5'
+compile 'com.github.emanuelet:android-instagram-oauth:0.6.1'
 ```
 
 Remember to add the jitpack.io dependency to your repositories:
