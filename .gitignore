@@ -8,3 +8,8 @@ target
 local.properties
 build.xml
 proguard.cfg
+.idea
+.gradle
+*.iml
+example/*.iml
+library/*.iml
