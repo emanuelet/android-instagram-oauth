@@ -27,7 +27,6 @@ public class InstagramApp {
     private InstagramDialog mDialog;
     private OAuthAuthenticationListener mListener;
     private ProgressDialog mProgress;
-    private String mAuthUrl;
     private String mTokenUrl;
     private String mAccessToken;
     private Context mCtx;
@@ -46,6 +45,7 @@ public class InstagramApp {
      */
 
     public static String mCallbackUrl = "";
+
     private static final String AUTH_URL = "https://api.instagram.com/oauth/authorize/";
     private static final String TOKEN_URL = "https://api.instagram.com/oauth/access_token";
     private static final String API_URL = "https://api.instagram.com/v1";
@@ -63,7 +63,7 @@ public class InstagramApp {
         mCallbackUrl = callbackUrl;
         mTokenUrl = TOKEN_URL + "?client_id=" + clientId + "&client_secret="
                 + clientSecret + "&redirect_uri=" + mCallbackUrl + "&grant_type=authorization_code";
-        mAuthUrl = AUTH_URL + "?client_id=" + clientId + "&redirect_uri="
+        String mAuthUrl = AUTH_URL + "?client_id=" + clientId + "&redirect_uri="
                 + mCallbackUrl + "&response_type=code&display=touch&scope=likes+comments+relationships";
 
         InstagramDialog.OAuthDialogListener listener = new InstagramDialog.OAuthDialogListener() {
